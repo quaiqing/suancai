@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F8FC"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="毫秒定时点击器"
+            android:textColor="#172033"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="设定屏幕坐标与目标时刻，到点发送一次 100ms 无障碍点击手势。"
+            android:textColor="#687386"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvDeviceClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="设备时间：--"
+            android:textColor="#172033"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNetworkClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="中国网络时间：未同步"
+            android:textColor="#2864DC"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSyncInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="网络时间状态：尚未校时"
+            android:textColor="#687386"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="同步中国网络时间" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="16dp" android:background="#DDE3ED" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="1. 点击位置"
+            android:textColor="#172033"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvResolution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="屏幕分辨率：--"
+            android:textColor="#687386"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingEnd="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="X 坐标" android:textColor="#687386" />
+                <EditText android:id="@+id/etX" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="例如 720" android:inputType="number" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Y 坐标" android:textColor="#687386" />
+                <EditText android:id="@+id/etY" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="例如 1600" android:inputType="number" android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="当前点击点：未设置"
+            android:textColor="#2864DC"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPick"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:text="在屏幕上点选位置" />
+
+        <Button
+            android:id="@+id/btnEnableAccessibility"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:text="开启无障碍辅助功能" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="16dp" android:background="#DDE3ED" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="2. 目标时刻与时间基准"
+            android:textColor="#172033"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/rbSystem" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:text="按设备系统时间（设备时区）" />
+            <RadioButton android:id="@+id/rbChina" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="按中国网络时间（UTC+8，NTP 校时）" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="日期：yyyy-MM-dd（例如 2026-10-27）"
+            android:textColor="#687386"
+            android:textSize="13sp" />
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="2026-10-27"
+            android:inputType="date"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="时间：支持 HH:mm、HH:mm:ss 或 HH:mm:ss.SSS"
+            android:textColor="#687386"
+            android:textSize="13sp" />
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="09:10:00.000"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="提前 / 延迟校准"
+            android:textColor="#172033"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/rgAdjust"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbNoAdjust" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="不调整" />
+            <RadioButton android:id="@+id/rbAdvance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提前" />
+            <RadioButton android:id="@+id/rbDelay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="延迟" />
+        </RadioGroup>
+        <EditText
+            android:id="@+id/etOffset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="校准毫秒数，例如 150（仅提前/延迟时生效）"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/tvTarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="有效目标时刻：未设置"
+            android:textColor="#2864DC"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tvCountdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="剩余时间：--"
+            android:textColor="#172033"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="16dp" android:background="#DDE3ED" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="3. 任务控制"
+            android:textColor="#172033"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="任务状态：未启动"
+            android:textColor="#687386"
+            android:textSize="14sp" />
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:text="开始定时点击" />
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:text="停止任务" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="18dp"
+            android:text="说明：点击持续 100ms。毫秒显示每约 10ms 刷新；Android 无障碍手势不是硬实时系统，实际触发可能受到系统调度、屏幕状态和应用限制影响。网络时间需联网校时，建议执行时保持屏幕亮起并避免系统省电限制。"
+            android:textColor="#687386"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

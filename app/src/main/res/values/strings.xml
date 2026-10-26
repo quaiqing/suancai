@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">毫秒定时点击器</string>
+    <string name="accessibility_description">在你指定的时间，对你选择的屏幕坐标执行一次 100 毫秒点击手势。</string>
+</resources>
